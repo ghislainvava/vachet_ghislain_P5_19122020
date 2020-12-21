@@ -1,4 +1,53 @@
 .object {
     width: 250px;
-    height: 250px;
+    height: 300px;
+    border: 1px solid black;
 }
+.presentation_objet{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 80px;
+}
+
+header img {
+    width: 400px;
+    margin: 50px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav{
+    margin: 100px;
+    font-size: 20px;
+}
+
+ul {
+    display: flex;
+}
+
+li{
+    text-decoration: none;
+    margin-right: 20px;
+    list-style: none;
+}
+
+.img_presentation{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.cam_presentation{
+    width: 840px;
+    height: 473px;
+}
+
+h1{
+    font-size: 40px;
+}
+
