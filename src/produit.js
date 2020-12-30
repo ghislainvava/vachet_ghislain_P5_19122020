@@ -3,6 +3,7 @@ import{loadDoc} from './function.js';
 
 const params = new URLSearchParams(document.location.search); //pour rechercher l'URL
 const id = params.get("id"); //prend le parametre ID
+//const article = document.getElementById('article');
 
 function productHtml(cameraSelect, url){
 
@@ -25,31 +26,35 @@ function productHtml(cameraSelect, url){
   var selection = document.querySelector("#selection");
   selection.appendChild(option);
 
-  //boucle pour l'option lenses
-  for(var i = 0;i<cameraSelect.lenses.length;i++){
-
-      var option = document.createElement('option');
-      option.setAttribute('value',cameraSelect.lenses[i]);
-      option.innerText = cameraSelect.lenses[i];
+  //selection de la lentille
+  cameraSelect.lenses.forEach(element => {
+    var option = document.createElement('option');
+      option.setAttribute('value',element);
+      option.innerText = element;
       selection.appendChild(option);
-  }
+  });
+  
 
-  
-  
 }
 loadDoc(productHtml,"http://localhost:3000/api/cameras/"+id)
 
 
-  
+document.getElementById("addToCart").onclick = function(){
+    let lentille = document.getElementById('selection').value;
+    let panier = [[id,lentille]];
+      if (lentille === "Veuillez choisir votre lentille") {
+            alert("Vous n'avez pas sélectionné la lentille");
+            return;
+         }
+     if(localStorage.panier == null) {
+        localStorage.setItem('panierStorage',JSON.stringify(panier));
+      } else {
+        let cart = JSON.parse(localStorage.getItem('panierStorage'));
+        panier = panier.concat(cart);
+        localStorage.setItem('panierStorage', JSON.stringify(panier));
+      }
+};
+
   
 
-  let nouvel = localStorage.getItem('variable1');
-  console.log(nouvel);
-  
-
-  /*{"lenses":["35mm 1.4","50mm 1.6"],
-  "_id":"5be1ed3f1c9d44000030b061",
-  "name":"Zurss 50S",
-  "price":49900,
-  "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "imageUrl":"http://localhost:3000/images/vcam_1.jpg"}*/
+ 
