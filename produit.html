@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produit</title>
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');</style>
+    
 </head>
 <body>
     <header>
@@ -13,29 +16,46 @@
             <ul>
                 <li>Panier</li>
                 <li>contact</li>
-                <li>Caméras Vintages</li>
+                <li>Accueil</li>
             </ul>
         </nav>
     </header>
     
 <body>
-    <div id="trait"></div>
-
-    <div id="article" >
-
-        <select name="s"  class="choise">
-            
-        </select>
     
-        <div id="valid"></div>
+
+    <div id="article" class="centerColumn">
+        <h1 id="nameH1">test</h1>
+        <img  class="img-big" src="" alt="photo de l'article">
+        <p id="para_id"></p>
+        <p id="desc"></p>
+        <p class="price"></p>
+        <select id="selection" name="s"  class="choise"></select>
+
+    
+       <div class="panier"> <i class="fas fa-cart-plus"></i> <input type="button" value="Ajouter au panier"></div>
 
     </div>
     
 
     
-</body>
-</html></h1>
-    <footer></footer>
-    <script src="src/produit.js"></script>
+
+<footer>
+
+    <div class="center">
+        <a  href="https://twitter.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a  href="https://fr-fr.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f "></i></a>
+        <a  href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="mg-footer" >
+        <p>A propos</p>
+        <p>Mentions légales</p>
+        <p>Conditions générales de vente</p>
+        <a  href="mailto:contact@orinoco.com">Contact</a>
+    </div>
+</footer>
+
+    <script type="module" src="src/produit.js"></script>
 </body>
 </html>

@@ -1,31 +1,48 @@
-const idProduit = document.getElementById("article");
+import{loadDoc} from './function.js';
+
+
 const params = new URLSearchParams(document.location.search); //pour rechercher l'URL
 const id = params.get("id"); //prend le parametre ID
 
+function productHtml(cameraSelect, url){
 
-function loadDoc() {
+  document.getElementById("nameH1").innerHTML = cameraSelect.name;
+
+  var image1 = document.getElementsByTagName("img")[1];
+  image1.setAttribute('src',cameraSelect.imageUrl);
+
+  document.getElementById("para_id").innerHTML ='Référence produit: '+cameraSelect._id;
+  document.getElementById("desc").innerHTML = cameraSelect.description;
+
+  var price = document.querySelector(".price");
+  price.innerHTML = cameraSelect.price + '€';
+
   
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          let cameraSelect = JSON.parse(this.responseText);
-         
+ 
+  //affiche l'option par défaut
+  var option = document.createElement('option');
+  option.innerHTML ="Veuillez choisir votre lentille";
+  var selection = document.querySelector("#selection");
+  selection.appendChild(option);
 
-          idProduit.innerHTML = '<div class="center"><div class="image-presentation"> <img class=img-big src="'
-          +cameraSelect.imageUrl +'"> + </div><div>Référence: '+ cameraSelect._id + '<br>' + cameraSelect.description + '<div class="price">' + cameraSelect.price +' €</div><select><Option value="0">' + cameraSelect.lenses[0] +'</Option></select></div></div>';
-          
-         
-        }
+  //boucle pour l'option lenses
+  for(var i = 0;i<cameraSelect.lenses.length;i++){
 
-    };
-    xhttp.open("GET", "http://localhost:3000/api/cameras/"+id, true);
-    xhttp.send();
+      var option = document.createElement('option');
+      option.setAttribute('value',cameraSelect.lenses[i]);
+      option.innerText = cameraSelect.lenses[i];
+      selection.appendChild(option);
   }
 
   
-  loadDoc();
+  
+}
+loadDoc(productHtml,"http://localhost:3000/api/cameras/"+id)
 
- 
+
+  
+  
+
   let nouvel = localStorage.getItem('variable1');
   console.log(nouvel);
   
