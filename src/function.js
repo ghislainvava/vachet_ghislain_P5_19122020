@@ -7,7 +7,7 @@ function loadDoc(success,url){
       }
     };
     xhttp.open("GET",url, true);//instancie une nouvelle requête
-    xhttp.send(); //revoie au serveur
+    xhttp.send(); //envoie au serveur la requête
 }
 
   export{loadDoc};

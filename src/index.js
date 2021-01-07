@@ -4,7 +4,8 @@
 export function success(tableauCamera) {
   tableauCamera.forEach(element => {
 
-    var a = document.createElement("a"); //href avec id qui permet de passer l'element avec son id
+    //href avec id qui permet de passer l'element avec son id
+    var a = document.createElement("a"); 
     a.setAttribute('href', 'produit.html?id='+element['_id']);
 
     var articles = document.getElementById('articles');
@@ -31,14 +32,10 @@ export function success(tableauCamera) {
 
     var price = document.createElement('div');
     price.setAttribute('class', 'price');
-    price.innerText = element.price + ' €'
+    price.innerText = element.price/100 + ',00 €'
     object.appendChild(price);
 
-
-
-
     
-
           
     });
 }

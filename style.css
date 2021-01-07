@@ -66,10 +66,8 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #F3E9F1;
-    
+    background-color: #F3E9F1;  
 }
-
 
  nav{
     margin-right: 100px;
@@ -86,10 +84,9 @@ a{
     list-style: none;
 }
 
- #img_presentation, .center{
+ #img_presentation, .center, .objectDuPanier{
     display:flex;
-    justify-content: center; 
-    
+    justify-content: center;   
 }
 
 .centerColumn{
@@ -141,6 +138,74 @@ a{
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     
+}
+
+.imgLogoPanier{
+    height: 80px;
+    margin-top: 100px;
+    
+}
+
+.objectDuPanier p{
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-left: 50px;
+    height: 100px;
+
+    
+}
+
+.objectDuPanier {
+    border : 1px solid black;
+    margin-bottom : 10px;
+    width : 800px;
+    border: 1px solid black;
+    
+}
+
+#total{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 80px;
+  margin-top: 30px;
+  border: 1px solid black;
+  width: 720px;
+  font-size: x-large;
+}
+
+#imageArticlePanier{
+    height:100px;
+    width: auto;
+    margin: 20px;  
+}
+
+.textePanier{
+    display: flex;
+    border: 1px solid black;
+    width: 500px;
+    margin-bottom: 20px;
+    padding-left: 300px;
+    
+}
+.textePanier p{
+    margin-right: 135px;
+    font-size: large;  
+}
+
+#btnCommander {
+    margin-top: 40px;  
+    background-color: #F3E9F1;
+    border-radius: 30px;
+    border: none;
+    height: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: x-large;
+    font-family: 'Cabin Sketch', sans-serif;
+}
+#btnCommander:hover{
+    font-size: xx-large;
 }
 
 

@@ -3,6 +3,7 @@ import{loadDoc} from './function.js';
 
 const params = new URLSearchParams(document.location.search); //pour rechercher l'URL
 const id = params.get("id"); //prend le parametre ID
+
 //const article = document.getElementById('article');
 
 function productHtml(cameraSelect, url){
@@ -16,7 +17,7 @@ function productHtml(cameraSelect, url){
   document.getElementById("desc").innerHTML = cameraSelect.description;
 
   var price = document.querySelector(".price");
-  price.innerHTML = cameraSelect.price + '€';
+  price.innerHTML = cameraSelect.price /100+ ',00 €';
 
   
  
@@ -34,24 +35,36 @@ function productHtml(cameraSelect, url){
       selection.appendChild(option);
   });
   
-
+ 
 }
 loadDoc(productHtml,"http://localhost:3000/api/cameras/"+id)
 
 
 document.getElementById("addToCart").onclick = function(){
+   
     let lentille = document.getElementById('selection').value;
+
+    
+    let name = document.getElementById('nameH1').innerText;
+    // pour recuperer urlimage utiliser getAttribute;
+    let srcImage = document.getElementById('imageA').getAttribute('src'); 
+    let price = document.querySelector('.price').innerText;
+    
     let panier = [[id,lentille]];
+
+    console.log(name);
       if (lentille === "Veuillez choisir votre lentille") {
             alert("Vous n'avez pas sélectionné la lentille");
             return;
          }
-     if(localStorage.panier == null) {
+     if(localStorage.panierStorage == null) {
         localStorage.setItem('panierStorage',JSON.stringify(panier));
+        alert('vous avez ajouter : '+ name.textContent +" avez l'option "+ lentille +' dans votre panier');
       } else {
         let cart = JSON.parse(localStorage.getItem('panierStorage'));
         panier = panier.concat(cart);
         localStorage.setItem('panierStorage', JSON.stringify(panier));
+        alert('vous avez ajouter : '+ name.textContent +" avez l'option "+ lentille +' dans votre panier');
       }
 };
 
