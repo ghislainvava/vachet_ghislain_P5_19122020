@@ -146,12 +146,13 @@ a{
     
 }
 
-.objectDuPanier p{
+.objectDuPanier div{
     display: flex;
     align-items: center;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 40px;
+    margin-left: 40px;
     height: 100px;
+    margin-top: 20px;
 
     
 }
@@ -208,4 +209,46 @@ a{
     font-size: xx-large;
 }
 
+a:hover {
+    font-size: x-large;
+}
 
+.fab:hover{
+    font-size: 40px;
+}
+#formular{
+    margin-top: 30px;
+    width: 600px;
+    border : 1px solid black;
+   display: flex;
+   flex-direction: column;
+
+
+}
+#champs div{
+    display: flex;
+    margin: 20px;
+}
+
+#prenom {
+    margin-left: 20px;
+}
+#mail{
+    margin-left: 38px;
+}
+#tel{
+    margin-left: 15px;
+}
+#validerFormulaire{
+    background-color: #F3E9F1;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    height: 40px;
+    font-size: x-large;
+    font-family: 'Cabin Sketch', sans-serif; 
+}
+
+#validerFormulaire:hover{
+    font-size: xx-large;
+}

@@ -29,6 +29,7 @@
                     <p>Nom</p>
                     <p>Lentille</p>
                     <p>prix</p>
+                    <!-- <p id="clear" class=" fas fa-trash-alt"></p> -->
                 </div>
                 <div id= presentationArticleInPanier>
                    
@@ -37,7 +38,34 @@
                 </div>
                 <div id="total"></div>
                  </div>
-                 <button id="btnCommander" onclick="montrer()"> Commander</button>
+                 <input type="button" id="btnCommander" onclick="montrer()"  value="Commander"/> 
+                 
+                 <div id="affichage" >
+
+                    <form id="formular" method="post" action="">
+                        <div id="champs">
+                            <div>
+                                <label for='prenom' >Entrez votre Prénom : </label>
+                                <input type='text'name='prenom' id='prenom'required>
+                                <span id='missPrenom'></span>
+                            </div>
+
+                            <div>
+                                <label for='mail'>Entrez votre email :</label>
+                                <input type='email' name='mail' id='mail'required/>
+                                <span id='mail'></span> 
+                            </div>
+
+                            <div>
+                                <label for='tel'>Numéro de téléphone : </label>
+                                <input type='tel' name='tel' id='tel'required/>
+                                <span id='tel'></span>
+                            </div>
+                        </div>
+
+                        <input id="validerFormulaire" type='submit' value='Valider'>
+                    </form>
+                </div>
 
         </div>
 
