@@ -1,6 +1,7 @@
 body{
     font-family: 'Cabin Sketch', cursive, sans-serif;
 }
+
 footer {
     font-family: sans-serif;
     margin: 100px 0 0 0;
@@ -84,7 +85,7 @@ a{
     list-style: none;
 }
 
- #img_presentation, .center, .objectDuPanier{
+ #img_presentation, .center{
     display:flex;
     justify-content: center;   
 }
@@ -127,42 +128,47 @@ a{
     border-style:none;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: 1px solid #7B1DFD;
-   ;
-    
 }
 
-.fa-cart-plus, .fab{
+.fa-cart-plus, .fab, #clear{
     /* color: linear-gradient(#DD770D, #7B1DFD); */
     font-size: 30px;
         background: -webkit-gradient(linear, left top, right top, from(#DD770D), to(#7B1DFD));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    
 }
 
 .imgLogoPanier{
     height: 80px;
-    margin-top: 100px;
-    
+    margin-top: 100px;  
 }
 
-.objectDuPanier div{
+#nameArticlePanier, #lentilleChoisiPanier, #priceArticlePanier{
     display: flex;
     align-items: center;
-    margin-right: 40px;
-    margin-left: 40px;
-    height: 100px;
-    margin-top: 20px;
-
+    width: 100px;
+    margin-left: 50px;
     
+   
+}
+.removeLine {
+    
+    width: 50px;
+    margin-left: 50px;
+    margin-top: 60px;
 }
 
 .objectDuPanier {
     border : 1px solid black;
     margin-bottom : 10px;
-    width : 800px;
-    border: 1px solid black;
-    
+    width : 800px; 
+    display: flex;
+
+}
+
+.objectDuPanier a {
+    width: 200px;
+    margin-left: 20px;
 }
 
 #total{
@@ -177,21 +183,27 @@ a{
 
 #imageArticlePanier{
     height:100px;
-    width: auto;
+    width: 150px;
     margin: 20px;  
 }
 
 .textePanier{
     display: flex;
     border: 1px solid black;
-    width: 500px;
-    margin-bottom: 20px;
-    padding-left: 300px;
-    
+    width: 520px;
+    padding-left: 280px;
+    margin-bottom: 20px;  
 }
+
 .textePanier p{
-    margin-right: 135px;
+    margin-right: 110px;
     font-size: large;  
+    width: 50px;
+}
+
+#clear{
+    font-size: x-large;
+    margin-top: 13px;  
 }
 
 #btnCommander {
@@ -205,6 +217,7 @@ a{
     font-size: x-large;
     font-family: 'Cabin Sketch', sans-serif;
 }
+
 #btnCommander:hover{
     font-size: xx-large;
 }
@@ -216,39 +229,36 @@ a:hover {
 .fab:hover{
     font-size: 40px;
 }
+
 #formular{
     margin-top: 30px;
     width: 600px;
     border : 1px solid black;
    display: flex;
    flex-direction: column;
-
-
 }
+
 #champs div{
-    display: flex;
+    display: flex; 
+    flex-direction: column;
     margin: 20px;
 }
 
-#prenom {
-    margin-left: 20px;
-}
-#mail{
-    margin-left: 38px;
-}
-#tel{
-    margin-left: 15px;
-}
 #validerFormulaire{
     background-color: #F3E9F1;
     border-bottom: none;
     border-right: none;
     border-left: none;
     height: 40px;
+    width: 100%;
     font-size: x-large;
     font-family: 'Cabin Sketch', sans-serif; 
 }
 
 #validerFormulaire:hover{
     font-size: xx-large;
+}
+
+#formular{
+    display: none;
 }

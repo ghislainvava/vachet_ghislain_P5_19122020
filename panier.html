@@ -29,7 +29,7 @@
                     <p>Nom</p>
                     <p>Lentille</p>
                     <p>prix</p>
-                    <!-- <p id="clear" class=" fas fa-trash-alt"></p> -->
+                    <p id="clear" class=" fas fa-trash-alt"></p>
                 </div>
                 <div id= presentationArticleInPanier>
                    
@@ -38,34 +38,49 @@
                 </div>
                 <div id="total"></div>
                  </div>
-                 <input type="button" id="btnCommander" onclick="montrer()"  value="Commander"/> 
-                 
-                 <div id="affichage" >
+                 <button type="button" id="btnCommander">Commander</button>
 
-                    <form id="formular" method="post" action="">
+                 
+         
+
+                    <form id="formular">
                         <div id="champs">
                             <div>
                                 <label for='prenom' >Entrez votre Prénom : </label>
-                                <input type='text'name='prenom' id='prenom'required>
+                                <input type='text'name='firstName' id='firstName'required>
                                 <span id='missPrenom'></span>
                             </div>
+                            <div>
+                                <label for='nom' >Entrez votre Nom : </label>
+                                <input type='text'name='lastName' id='lastName'required>
+                                <span id='missNom'></span>
+                            </div>
+
+                            <div>
+                                <label for='adress' >Entrez votre adresse : </label>
+                                <input type='text'name='adress' id='adress'required>
+                                <span id='missAdress'></span>
+                            </div>
+
+                            <div>
+                                <label for='city' >Entrez le nom de votre ville : </label>
+                                <input type='text'name='city' id='city'required>
+                                <span id='cityName'></span>
+                            </div>
+
 
                             <div>
                                 <label for='mail'>Entrez votre email :</label>
                                 <input type='email' name='mail' id='mail'required/>
-                                <span id='mail'></span> 
+                                <span id='email'></span> 
                             </div>
 
-                            <div>
-                                <label for='tel'>Numéro de téléphone : </label>
-                                <input type='tel' name='tel' id='tel'required/>
-                                <span id='tel'></span>
-                            </div>
+                            
                         </div>
 
-                        <input id="validerFormulaire" type='submit' value='Valider'>
+                        <button id="validerFormulaire" type='submit'>Valider</button>
                     </form>
-                </div>
+                
 
         </div>
 
