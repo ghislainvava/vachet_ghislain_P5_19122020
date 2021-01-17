@@ -7,17 +7,29 @@
   
 </head>
 <body>
-
-<h1 id='h1'></h1>
-
+<form>
+   <div id="champs">
+    <div>
+        <label for="prenom" >Entrez votre Prénom : </label>
+        <input type="text" name="firstName" id="firstName"required>
+        <span id="missPrenom"></span>
+    </div>
+    <div>
+        <label for="nom" >Entrez votre Nom : </label>
+        <input type="text" name="lastName" id="lastName"required>
+        <span id="missNom"></span>
+    </div>
+</div>
+<div>
+    <button id="validerFormulaire" type="submit">valider</button>
+</div>
+</form>
 <script>
-       
-   arrayB(newTab);
-
-    let h1 = document.getElementById('h1');
-
-    h1.innerText = newTab; 
-
+    let btnSubmit = document.getElementById("validerFormulaire");
+    btnSubmit.addEventListener("click",function(){
+        localStorage.setItem("reponse","ca marche");
+        console.log("Ca marche");
+    })
 </script>
 </body>
 </html>

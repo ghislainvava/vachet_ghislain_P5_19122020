@@ -85,6 +85,12 @@ a{
     list-style: none;
 }
 
+#imgdecor img {
+    height: auto;
+    width: 504px;
+    margin-top: 50px;
+}
+
  #img_presentation, .center{
     display:flex;
     justify-content: center;   
@@ -262,3 +268,32 @@ a:hover {
 #formular{
     display: none;
 }
+/* confirmation */
+#backgroundCommande{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    background-image:url('http://localhost:3000/images/vcam_2.jpg');
+   
+   
+}
+
+#ticket {
+    background-color: #F3E9F1;
+    opacity: 0.5;
+    width: 600px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.recev {
+    
+    justify-content: center;
+    margin-bottom: 0px;
+}
+.xl{
+    font-size: 40px;
+}
+

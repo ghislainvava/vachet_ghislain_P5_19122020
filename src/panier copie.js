@@ -7,11 +7,6 @@ import{loadDoc} from './function.js';
     let presentationArticleInPanier = document.getElementById('presentationArticleInPanier');
     
 function afficherPanier(){
-    //condition pour vérifier si le panier est vide 
-    if (paniers == null){  
-        let h1panier = document.getElementById('h1Panier');
-        h1panier.textContent = "Votre panier est vide";
-    }else{
 
         // foreach pour utiser les elements du tableau paniers
          paniers.forEach(element => {
@@ -76,12 +71,11 @@ function afficherPanier(){
             var total = document.getElementById('total');
             somme += price;
             total.innerText = 'Total de votre commande  :  '+somme/100 + ',00 €';
-            localStorage.setItem('total', somme/100 + ',00 €');
+           
 
         },idServeur);
     });
-  }
-}   
+}
 // effacer tout le panier
 let clear = document.getElementById('clear');
 clear.addEventListener("click", function(){
@@ -99,64 +93,138 @@ btn.onclick = function(){
     affichage.style.display = "block";
 }
 
-
+function remplirArrayProduct(arrayProduct) {      
+    arrayProduct.length = 0;
+    paniers.forEach(element => {
+    let idProduct = element[0];
+    arrayProduct = arrayProduct.concat(["_id",idProduct]);
+    
+});
+return arrayProduct;
+}
 
 
 // CONFIRMATION DE COMMANDE
+function confirmCommand() {
+    swal("Votre commande a bien été validée, vous allez être redirigé", "", "success");
+    setTimeout(function() {window.location = 'confirmation.html'; }, 3000);
+  }
+
 
 
 let btn2 = document.getElementById('validerFormulaire');
 
-btn2.addEventListener("click",function (event){
+btn2.addEventListener("submit",function (){
+ 
+    let arrayProduct  = [[]];
     
-    event.preventDefault();
-   
-    let arrayProduct = [];
-    
-        arrayProduct.length = 0;
 
-        paniers.forEach(element => {
-        let idProduct = element[0];
-        arrayProduct.push(idProduct);
-        
-            });
-        
+    arrayProduct = remplirArrayProduct(arrayProduct);
+    
+
     let order = {
       contact: {
-        firstName : document.getElementById("firstName").value,
-            lastName : document.getElementById("lastName").value,
-            address : document.getElementById("adress").value,
-            city : document.getElementById("city").value,
-            email :document.getElementById("mail").value,
+        firstName: document.querySelector("#firstname").value.trim(),
+        lastName: document.querySelector("#lastName").value.trim(),
+        address: document.querySelector("#adress").value.trim(),
+        city: document.querySelector("#city").value.trim(),
+        email: document.querySelector("#mail").value.trim(),
       },
-      products: arrayProduct
+      products: arrayProduct,
+    };
 
+  console.log(order)
 
-    }
-    
-    fetch("http://localhost:3000/api/cameras/order",{
+    const request = new Request( // On crée notre requête POST vers API
+      "http://localhost:3000/api/cameras/order",
+      {
         method: "POST",
-        headers : {
-            "Content-Type": "application/json"
-        },
-        body : JSON.stringify(order)
-    })
-
-      .then(function(response){
-        return response.json();
-      })
-      .then(function(response){ 
-         //delete localStorage['panierStorage']; 
-         localStorage.setItem('NumberCommande',JSON.stringify(response.orderId));
-         setTimeout(function() {location = 'confirmation.html'; }, 1000);
-
+        body: JSON.stringify(order),
+        headers: new Headers({
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        })
+      }
+    );
+  
+    fetch(request)
+      .then((response) => response.json())
+      .then((response) => { //on récupère la réponse de l'API pour obtenir numéro de commande
+        let numCommand = response.orderId;
+        console.log(numCommand)
+        localStorage.setItem("idCommand", JSON.stringify(numCommand)); // on met à jour le localstorage avec numero de commande
+        localStorage.setItem("infosOrder",JSON.stringify(order)); // on met à jour le localstorage avec infos de commande
       });
-});
+
+      confirmCommand();
+  });
+
+
+   
+
+  
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// btn2.onclick = function (){
+
+//     let order = {
+//         Contact : {
+//             firstName : document.getElementById("firstName").value.trim(),
+//             lastName : document.getElementById("lastName").value.trim(),
+//             adress : document.getElementById("adress").value.trim(),
+//             city : document.getElementById("adress").value.trim(),
+//             email :document.getElementById("mail").value.trim(),
+//         }, products : remplirArrayProduct(),   
+//     }
+
+    //     let arrayProduct = [];
+
+    //     function remplirArrayProduct() {
+            
+    //         arrayProduct.length = 0;
+    //         paniers.forEach(element => {
+    //         let idProduct = element[0];
+    //         arrayProduct.push(idProduct);
+    //         return arrayProduct
+    //     });
+    // } 
+
+//     var myRequest = new Request(arrayProduct(), )
+        
+//         var total = document.getElementById('total');
+//         localStorage.setItem('total', total)
+
+// }
+
+
+
+//   function envoieVersServeur(aEnvoyer) {
+//     //Envoie de l'objet "aEnvoyer" vers le serveur
+//     const promise01 = fetch("http://localhost:3000/api/cameras/order", {
+//     method: "POST",
+//     body: JSON.stringify(aEnvoyer),
+//     headers: {
+//     "Content-Type": "application/json",
+//     },
+//     });
 
 // function validation(event){
 //     var prenom = document.getElementById('firstName');

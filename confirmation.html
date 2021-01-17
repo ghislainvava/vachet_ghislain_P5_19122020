@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation de commande</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');</style>
+
 </head>
 <body>
     <header>		     
@@ -16,7 +20,32 @@
     </header>
 
     <section>
-        
+        <div id="backgroundCommande" class="center">
+            <div id="ticket" class="centerColumn">
+              
+
+                    <h3 id="h1confirm">Votre commande a bien été enregistrée !</h3>
+                    <p>Notez votre numéro de commande :</p>
+                    <p id="NumCommande"></p>
+                    <p><i class="fas fa-camera-retro  xl" ></i></p>
+                    <p id=descCommande></p>    
+                    
+                    <p id="montantCommande"></p>
+                    <div class="recev centerColumn">
+                    <p>Vous recevrez un email de confirmation de commande</p> 
+                    
+                    <p>Merci d'avoir commandé chez ORINOCO</p>
+                    </div>
+
+                    
+                    
+               
+                
+
+            </div>
+
+
+        </div>
     </section>
 
     <footer>
@@ -34,6 +63,7 @@
             <a  href="mailto:contact@orinoco.com">Contact</a>
         </div>
 </footer>
+<script src="src/confirmation.js"></script>
     
 </body>
 </html>

@@ -10,6 +10,5 @@ function loadDoc(success,url){
     xhttp.send(); //envoie au serveur la requête
 }
 
-
   export{loadDoc};
 
