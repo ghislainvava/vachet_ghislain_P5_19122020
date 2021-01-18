@@ -13,7 +13,7 @@
 <body>
 
     <header>		     
-       <img src="images/logo_Orinoco.png" alt="logo_Orinoco">
+       <img src="images/logo_Orinoco.png" alt="logo_Orinoco" class="img-logo">
        <nav> 
            <ul>
                <li><a href="index.html"></i> Accueil</a></li>
@@ -28,7 +28,7 @@
                 <div class="textePanier">
                     <p>Nom</p>
                     <p>Lentille</p>
-                    <p>prix</p>
+                    <p id="price">prix</p>
                     <p id="clear" class=" fas fa-trash-alt"></p>
                 </div>
                 <div id= presentationArticleInPanier>
@@ -43,11 +43,11 @@
                  
          
 
-                    <form id="formular">
+                    <form id="formular" novalidate>
                         <div id="champs">
                             <div>
                                 <label for="prenom" >Entrez votre Prénom : </label>
-                                <input type="text" name="firstName" id="firstName"required>
+                                <input type="text" name="firstName" id="firstName">
                                 <span id="missPrenom"></span>
                             </div>
                             <div>
@@ -59,7 +59,7 @@
                             <div>
                                 <label for="adress" >Entrez votre adresse : </label>
                                 <input type="text" name="adress" id="adress"required>
-                                <span id="missAdress"></span>
+                                <span id="missAddress"></span>
                             </div>
 
                             <div>
@@ -98,9 +98,9 @@
             </div>
 
             <div class="mg-footer" >
-                <p>A propos</p>
-                <p>Mentions légales</p>
-                <p>Conditions générales de vente</p>
+                <a href="index.html"><p>A propos</p></a>
+                <a href="index.html"><p>Mentions légales</p></a>
+                <a href="index.html"><p>Conditions générales de vente</p></a>
                 <a  href="mailto:contact@orinoco.com">Contact</a>
             </div>
     </footer>

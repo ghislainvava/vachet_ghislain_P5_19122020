@@ -58,11 +58,6 @@ a{
     box-shadow: 0px -5px 10px #565C6A;
 }
 
- header img {
-    width: 400px;
-    margin: 50px;
-}
-
  header{
     display: flex;
     justify-content: space-between;
@@ -71,7 +66,7 @@ a{
 }
 
  nav{
-    margin-right: 100px;
+    margin-right: 50px;
     margin-top: 30px;
     font-size: 20px;
 }
@@ -103,10 +98,19 @@ a{
     flex-direction: column;
 }
 
- #img_presentation img, .img-big{
+ #img_presentation img{
     width: 840px;
-    height: 473px;
+    height: auto;
+    
+}
+.img-big, #desc{
+    width: 760px;
     border-radius: 50px;
+}
+
+.img-logo{
+    width: 570px;
+    height: auto;
 }
 
  h1{
@@ -153,12 +157,9 @@ a{
     display: flex;
     align-items: center;
     width: 100px;
-    margin-left: 50px;
-    
-   
+    margin-left: 50px; 
 }
-.removeLine {
-    
+.removeLine {    
     width: 50px;
     margin-left: 50px;
     margin-top: 60px;
@@ -169,7 +170,6 @@ a{
     margin-bottom : 10px;
     width : 800px; 
     display: flex;
-
 }
 
 .objectDuPanier a {
@@ -203,8 +203,8 @@ a{
 
 .textePanier p{
     margin-right: 110px;
-    font-size: large;  
-    width: 50px;
+    font-size: 12px;  
+    width: 60px;
 }
 
 #clear{
@@ -274,8 +274,6 @@ a:hover {
     margin-bottom: 100px;
     width: 100%;
     background-image:url('http://localhost:3000/images/vcam_2.jpg');
-   
-   
 }
 
 #ticket {
@@ -289,7 +287,6 @@ a:hover {
 }
 
 .recev {
-    
     justify-content: center;
     margin-bottom: 0px;
 }
@@ -297,3 +294,169 @@ a:hover {
     font-size: 40px;
 }
 
+@media all and (min-width: 501px) and (max-width:860px){
+    header{
+        flex-direction: column;
+    }
+
+    .img-big, .img-logo, #desc{
+        width: 450px;
+        height: auto;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    nav{
+        padding-left: 30px;
+    }
+
+    h1{
+        margin-top: 50px;
+       font-size: 40px;
+   }
+   .textePanier{
+    width: 319px;
+    padding-left: 0px;
+    margin-bottom: 20px; 
+    padding-left: 180px ;
+    }
+
+    .textePanier p{
+        margin-right: 0px;
+        margin-left: 20px;
+        font-size: large;
+    }
+    #clear {
+        width: 40px;
+    }
+
+   .mg-footer{
+    margin-left: 10px;
+   }
+   .object img {
+    width: 300px;	   	 
+    } 	
+    .object{
+        height: 150px;
+    }
+    #articles {
+        border: none;
+        margin: auto;
+    }
+    .objectDuPanier {
+        border : 1px solid black;
+        margin-bottom : 10px;
+        width : 499px; 
+        display: flex;
+    }
+   
+    #total{
+        width: 499px;
+        padding:0px;
+        justify-content: center;
+    }
+    .objectDuPanier a {
+        margin-left : 0px;
+    }
+
+    #price{
+        margin-left: 40px;
+    }
+    #nameArticlePanier, #lentilleChoisiPanier, #priceArticlePanier{
+        margin-left: 0px;
+        margin-right: 20px;
+        font-size: 14px;   
+    }
+
+    .removeLine {    
+        width: 50px;
+        margin-left: 0px;
+        margin-top: 60px;
+    }
+}
+
+@media all and (max-width: 500px) {
+    header{
+        flex-direction: column;
+    }
+
+    #imgdecor img {
+        display: none;
+    }
+    .img-big, .img-logo, #desc{
+        width: 340px;
+        height: auto;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    nav{
+        padding-left: 30px;
+    }
+
+    h1{
+        margin-top: 50px;
+       font-size: 32px;
+   }
+   .mg-footer{
+    margin-left: 10px;
+   }
+   #articles {
+       border: none;
+       margin: auto;
+   }
+
+   .object img {
+    width: 300px;	   	 
+    } 
+    	
+    .object{
+        height: 150px;
+    }
+
+    .objectDuPanier{
+        width: 359px;;
+    }
+
+    #total{
+        width: 359px;
+    }
+
+    .textePanier{
+        width: 259px;
+        padding-left: 100px;
+    }
+
+    .textePanier p{
+        margin-right: 0px;
+        margin-left: 20px;
+        font-size: large;
+    }
+
+    #nameArticlePanier, #lentilleChoisiPanier, #priceArticlePanier{
+        margin-left: 0px;
+        margin-right: 10px;
+        font-size: 12px;   
+    }
+
+    #total{
+        width: 359px;
+        padding:0px;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .objectDuPanier a{
+        margin-left: 0;
+    }
+    #imageArticlePanier {
+        width: 100px;
+        height: auto;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+    .removeLine{
+        margin-left: 0;
+        margin-top: 45px;
+    }
+
+ }

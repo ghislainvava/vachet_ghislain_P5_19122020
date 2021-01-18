@@ -5,6 +5,7 @@ import{loadDoc} from './function.js';
     //parsage du panier dans localStorage
     let paniers = JSON.parse(localStorage.getItem('panierStorage'));
     let presentationArticleInPanier = document.getElementById('presentationArticleInPanier');
+    let arrayProduct = [];
     
 function afficherPanier(){
     //condition pour vérifier si le panier est vide 
@@ -110,8 +111,28 @@ let btn2 = document.getElementById('validerFormulaire');
 btn2.addEventListener("click",function (event){
     
     event.preventDefault();
-   
-    let arrayProduct = [];
+    var form = document.getElementsByTagName('form')[0];
+    var firstName = document.getElementById("firstName")
+    var lastName = document.getElementById("lastName")
+    var address = document.getElementById("adress")
+    var city =  document.getElementById("city")
+    var email = document.getElementById("mail")
+
+    // email.addEventListener("input", function(event){
+    //     if(email.validity.valid){
+    //         mail.innerText = "";
+    //         mail.className = "error";
+    //     }
+    // }, false);
+    // form.addEventListener("submit", function (event){
+    //     if (!email.validity.valid) {
+    //         mail.innerHTML = "Veuillez entrer une adresse e-mail correct";
+    //         mail.className = "error active";
+    //         event.preventDefault();
+    //     }
+    // }, false);
+    
+    
     
         arrayProduct.length = 0;
 
@@ -123,11 +144,11 @@ btn2.addEventListener("click",function (event){
         
     let order = {
       contact: {
-        firstName : document.getElementById("firstName").value,
-            lastName : document.getElementById("lastName").value,
-            address : document.getElementById("adress").value,
-            city : document.getElementById("city").value,
-            email :document.getElementById("mail").value,
+        firstName : firstName,
+            lastName : lastName,
+            address : address,
+            city : city,
+            email : email
       },
       products: arrayProduct
 
@@ -158,26 +179,26 @@ btn2.addEventListener("click",function (event){
 
 
 
-// function validation(event){
-//     var prenom = document.getElementById('firstName');
-//     var missPrenom = document.getElementById('missPrenom');
-//     var prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
+function validation(event){
+    var prenom = document.getElementById('firstName');
+    var missPrenom = document.getElementById('missPrenom');
+    var prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
 
-//     if (prenom.validity.valueMissing){
-//         event.preventDefault();
-//         missPrenom.textcontent ='Prénom manquant';
-//         missPrenomcolor = 'red';
+    if (prenom.validity.valueMissing){
+        event.preventDefault();
+        missPrenom.textcontent ='Prénom manquant';
+        missPrenomcolor = 'red';
 
-//     } else if(prenomValid.test(prenom.value) == false){
-//         event.preventDefault();
-//         missPrenom.textContent ='Format incorrect';
-//         missPrenom.style.color = 'orange';
+    } else if(prenomValid.test(prenom.value) == false){
+        event.preventDefault();
+        missPrenom.textContent ='Format incorrect';
+        missPrenom.style.color = 'orange';
 
-//     }else {
-//         missPrenom.textContent ='';
-//     }
+    }else {
+        missPrenom.textContent ='';
+    }
 
-// }
+}
 
 
 
