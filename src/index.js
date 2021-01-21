@@ -34,9 +34,7 @@ export function success(tableauCamera) {
     price.setAttribute('class', 'price');
     price.innerText = element.price/100 + ',00 €'
     object.appendChild(price);
-
-    
-          
+     
     });
 }
 loadDoc(success, "http://localhost:3000/api/cameras");

@@ -1,11 +1,11 @@
+//JS pour remplir la page confirmation à partir de donnés du panier
 let numCommande = document.getElementById('NumCommande')
 let numStorage = JSON.parse(localStorage.getItem('NumberCommande'));
 numCommande.innerHTML = numStorage
-
 let numArticles = document.getElementById('descCommande');
 let numbers = JSON.parse(localStorage.getItem('panierStorage'));
-// let numberslength = numbres.lenght;
-// console.log(numbers);
+
+//condition qui permet de personnalisé l'affichage 
 if (numbers.length > 1) {
     numArticles.innerHTML = 'Vous avez commandez '+ numbers.length +' articles pour un montant de :'
 } else {
@@ -14,7 +14,9 @@ if (numbers.length > 1) {
 
 let montantCommande = document.getElementById('montantCommande');
 let total = localStorage.getItem('total');
-console.log(total)
 montantCommande.textContent = total;
-
-localStorage.clear();
+let accueil = document.getElementById('accueil');
+//fonction pour vider le localStorage au retour vers l'acceuil
+accueil.addEventListener("click", function() {
+    localStorage.clear()});
+ 

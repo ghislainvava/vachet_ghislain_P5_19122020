@@ -49,6 +49,7 @@ document.getElementById("addToCart").onclick = function(){
     // pour recuperer urlimage utiliser getAttribute;
     let srcImage = document.getElementById('imageA').getAttribute('src'); 
     let price = document.querySelector('.price').innerText;
+    let descPanier = document.getElementById('descPanier')
     
     let panier = [[id,lentille]];
 
@@ -59,12 +60,12 @@ document.getElementById("addToCart").onclick = function(){
          }
      if(localStorage.panierStorage == null) {
         localStorage.setItem('panierStorage',JSON.stringify(panier));
-        alert('vous avez ajouter : '+ name.textContent +" avez l'option "+ lentille +' dans votre panier');
+        descPanier.textContent ="Vous avez ajouter l'appareil photo: "+ name +" avec la lentille "+ lentille +' dans votre panier';
       } else {
         let cart = JSON.parse(localStorage.getItem('panierStorage'));
         panier = panier.concat(cart);
         localStorage.setItem('panierStorage', JSON.stringify(panier));
-        alert('vous avez ajouter : '+ name.textContent +" avez l'option "+ lentille +' dans votre panier');
+        descPanier.textContent = "Vous avez ajouter l'appareil photo: "+ name +" avec la lentille "+ lentille +' dans votre panier';
       }
 };
 

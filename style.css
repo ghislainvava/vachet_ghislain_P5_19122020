@@ -203,7 +203,7 @@ a{
 
 .textePanier p{
     margin-right: 110px;
-    font-size: 12px;  
+    font-size: 16px;  
     width: 60px;
 }
 
@@ -240,8 +240,9 @@ a:hover {
     margin-top: 30px;
     width: 600px;
     border : 1px solid black;
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    display:  none;
 }
 
 #champs div{
@@ -265,9 +266,7 @@ a:hover {
     font-size: xx-large;
 }
 
-#formular{
-    display: none;
-}
+
 /* confirmation */
 #backgroundCommande{
     margin-top: 100px;
@@ -292,6 +291,17 @@ a:hover {
 }
 .xl{
     font-size: 40px;
+    
+}
+
+#message{
+    color: #ff0000;
+}
+
+#descPanier {
+    color: #008000;
+    margin-top: 20px;
+    
 }
 
 @media all and (min-width: 501px) and (max-width:860px){
@@ -457,6 +467,10 @@ a:hover {
     .removeLine{
         margin-left: 0;
         margin-top: 45px;
+    }
+
+    #formular{
+        width: 359px;
     }
 
  }

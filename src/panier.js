@@ -30,8 +30,7 @@ function afficherPanier(){
                     let name = cameraSelect2.name;
                     let srcImage = cameraSelect2.imageUrl; 
                     let price = cameraSelect2.price;
-
-                    
+              
                     //création de l'image avec un lien vers l'objet avec Description dans objectDuPanier
                     let a = document.createElement("a"); 
                     a.setAttribute('href', 'produit.html?id='+element[0]);
@@ -100,78 +99,90 @@ btn.onclick = function(){
     affichage.style.display = "block";
 }
 
-
-
-
 // CONFIRMATION DE COMMANDE
 
 
 let btn2 = document.getElementById('validerFormulaire');
+var firstName = document.getElementById("firstName")
 
-btn2.addEventListener("click",function (event){
-    
-    event.preventDefault();
-    var form = document.getElementsByTagName('form')[0];
-    var firstName = document.getElementById("firstName")
-    var lastName = document.getElementById("lastName")
-    var address = document.getElementById("adress")
-    var city =  document.getElementById("city")
-    var email = document.getElementById("mail")
+var lastName = document.getElementById("lastName")
+var address = document.getElementById("adress")
+var city =  document.getElementById("city")
+var email = document.getElementById("mail")
+var message = document.getElementById("message");
 
-    // email.addEventListener("input", function(event){
-    //     if(email.validity.valid){
-    //         mail.innerText = "";
-    //         mail.className = "error";
-    //     }
-    // }, false);
-    // form.addEventListener("submit", function (event){
-    //     if (!email.validity.valid) {
-    //         mail.innerHTML = "Veuillez entrer une adresse e-mail correct";
-    //         mail.className = "error active";
-    //         event.preventDefault();
-    //     }
-    // }, false);
-    
-    
-    
-        arrayProduct.length = 0;
+//fonction pour contrôler le contenu du formulaire
+function validation(){
+    let regexName = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
+    let regexEmail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
+    if (firstName.value=="" || lastName.value=="" || address.value=="" || city.value == "" || email.value == "" ){  
+        return 1
+    } else if (regexName.test(firstName.value)== false || regexName.test(lastName.value)== false) {
+        return 2
+    } else if(regexEmail.test(email.value) == false ){
+        return 3
+    } else {
+        return 4
+    }
+}
 
+// function pour remplir products
+function remplirProducts() {
+    arrayProduct.length = 0;
         paniers.forEach(element => {
         let idProduct = element[0];
-        arrayProduct.push(idProduct);
-        
+        arrayProduct.push(idProduct);      
             });
-        
-    let order = {
-      contact: {
-        firstName : firstName,
-            lastName : lastName,
-            address : address,
-            city : city,
-            email : email
-      },
-      products: arrayProduct
+}
 
-
-    }
-    
+// function fetch avec parametre order pour envoyer en assynchrone le post
+function fetchOrder(order){
     fetch("http://localhost:3000/api/cameras/order",{
-        method: "POST",
-        headers : {
-            "Content-Type": "application/json"
-        },
-        body : JSON.stringify(order)
-    })
+    method: "POST",
+    headers : {
+        "Content-Type": "application/json"
+    },
+    body : JSON.stringify(order)
+})
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(response){ 
+     localStorage.setItem('NumberCommande',JSON.stringify(response.orderId));
+     setTimeout(function() {location = 'confirmation.html'; }, 1000);
+  });
+}
 
-      .then(function(response){
-        return response.json();
-      })
-      .then(function(response){ 
-         //delete localStorage['panierStorage']; 
-         localStorage.setItem('NumberCommande',JSON.stringify(response.orderId));
-         setTimeout(function() {location = 'confirmation.html'; }, 1000);
+//évenement qui declanche le formulaire et fetch
+btn2.addEventListener("click",function (event){
+   switch (validation()){
+        case 1 :
+            message.textContent = "Un champs n'est pas correctement rentré"
+            break;
+        case 2 : 
+             message.textContent = "Votre Nom ou Prénom n'est pas valide"
+            break;
 
-      });
+        case 3 :
+            message.textContent = "il y a un probléme dans votre adresse email"   
+            break
+        case 4 :    
+                remplirProducts();       
+                let order = {
+                contact: {
+                    firstName : firstName,
+                        lastName : lastName,
+                        address : address,
+                        city : city,
+                        email : email
+                },
+                products: arrayProduct
+                }
+                fetchOrder(order)
+            break;
+        default:
+            break;  
+    }
 });
 
 
@@ -179,26 +190,6 @@ btn2.addEventListener("click",function (event){
 
 
 
-function validation(event){
-    var prenom = document.getElementById('firstName');
-    var missPrenom = document.getElementById('missPrenom');
-    var prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?/;
-
-    if (prenom.validity.valueMissing){
-        event.preventDefault();
-        missPrenom.textcontent ='Prénom manquant';
-        missPrenomcolor = 'red';
-
-    } else if(prenomValid.test(prenom.value) == false){
-        event.preventDefault();
-        missPrenom.textContent ='Format incorrect';
-        missPrenom.style.color = 'orange';
-
-    }else {
-        missPrenom.textContent ='';
-    }
-
-}
 
 
 
