@@ -6,17 +6,14 @@
     <title>liste produit</title>
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <style>@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');</style>
-
-    
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap');</style>  
 </head>
 <body>
-
     <header>		     
        <img src="images/logo_Orinoco.png" alt="logo_Orinoco" class="img-logo">
        <nav> 
            <ul>
-               <li><a href="index.html"></i> Accueil</a></li>
+               <li><a href="index.html"> Accueil</a></li>
            </ul>
        </nav>
    </header>
@@ -31,26 +28,23 @@
                     <p id="price">prix</p>
                     <p id="clear" class=" fas fa-trash-alt"></p>
                 </div>
+        <!-- presentationArticleInPanier va être utiliser par javascript pour afficher les éléments du panier  -->
                 <div id= presentationArticleInPanier>
-                   
-
-
                 </div>
+        <!-- total va utiliser par javascript pour afficher le calcul du montant total -->
                 <div id="total"></div>
                  </div>
+         <!-- boutton pour afficher le formaulaire  -->
                  <button type="button" id="btnCommander">Commander</button>
-
-                 
-         
-
+                 <!-- formulaire -->
                     <form id="formular" novalidate>
                         <div id="champs">
                             <div>
-                                <label for="prenom" >Entrez votre Prénom : </label>
+                                <label for="firstName" >Entrez votre Prénom : </label>
                                 <input type="text" name="firstName" id="firstName">
                             </div>
                             <div>
-                                <label for="nom" >Entrez votre Nom : </label>
+                                <label for="lastName" >Entrez votre Nom : </label>
                                 <input type="text" name="lastName" id="lastName">
                             </div>
 
@@ -68,30 +62,20 @@
                                 <label for="mail">Entrez votre email :</label>
                                 <input type="email" name="mail" id="mail" >
                                 <span id="message"></span> 
-                            </div>
-
-                            
+                            </div>         
                         </div>
-                        
                         <div>
                             <button id="validerFormulaire" type="button">valider</button>
                         </div>
                     </form>
-                
-
         </div>
-
-
    </section>
-
    <footer>
-
             <div class="center">
                 <a  href="https://twitter.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a  href="https://fr-fr.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f "></i></a>
                 <a  href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-
             <div class="mg-footer" >
                 <a href="index.html"><p>A propos</p></a>
                 <a href="index.html"><p>Mentions légales</p></a>
@@ -99,8 +83,6 @@
                 <a  href="mailto:contact@orinoco.com">Contact</a>
             </div>
     </footer>
-
-    <script type="module" src="src/panier.js"></script>
-    
+    <script type="module" src="src/panier.js"></script> 
 </body>
 </html>

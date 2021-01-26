@@ -11,7 +11,6 @@ if (numbers.length > 1) {
 } else {
     numArticles.innerHTML = 'Vous avez commandez '+ numbers.length +' article pour un montant de :'
 }
-
 let montantCommande = document.getElementById('montantCommande');
 let total = localStorage.getItem('total');
 montantCommande.textContent = total;

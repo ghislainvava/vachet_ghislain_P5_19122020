@@ -128,7 +128,7 @@ a{
 }
 .panier input{
     background-color: #F3E9F1;
-    border-color: #F3E9F1;
+   
     border-radius: 25px;
     height: 40px;
     margin: 10px;
@@ -144,6 +144,7 @@ a{
     /* color: linear-gradient(#DD770D, #7B1DFD); */
     font-size: 30px;
         background: -webkit-gradient(linear, left top, right top, from(#DD770D), to(#7B1DFD));
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 }
