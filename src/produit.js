@@ -1,5 +1,16 @@
-// import nous permet d'utiliser la fonction créer sur function.js
-import{loadDoc} from './function.js';
+// création de la fonction loadDoc qui va nous permettre de récupérer un tableau json sur l'api
+function loadDoc(success,url){
+    let xhttp = new XMLHttpRequest();  //requette Ajax
+    xhttp.onreadystatechange = function() { //callback Ajax
+      if (this.readyState == 4 && this.status == 200) { //pour verifier que l'on reçoit bien les infos du serveur
+      let arrayJSON = JSON.parse(this.responseText);
+      success(arrayJSON); //création d'un tableau JSON
+      }
+    };
+    xhttp.open("GET",url, true);//instancie une nouvelle requête
+    xhttp.send(); //envoie au serveur la requête
+}
+
 const params = new URLSearchParams(document.location.search); //pour rechercher l'URL
 const id = params.get("id"); //prend le parametre ID
 
@@ -8,24 +19,24 @@ function productHtml(cameraSelect){
 //  appel de id "nameH1"et remplissage du code html avec la recuperation du nom de l'object recuperé
   document.getElementById("nameH1").innerHTML = cameraSelect.name;
 
-  var image1 = document.getElementsByTagName("img")[1];
+  const image1 = document.getElementsByTagName("img")[1];
   image1.setAttribute('src',cameraSelect.imageUrl);
 
   document.getElementById("para_id").innerHTML ='Référence produit: '+cameraSelect._id;
   document.getElementById("desc").innerHTML = cameraSelect.description;
 
-  var price = document.querySelector(".price");
+  const price = document.querySelector(".price");
   price.innerHTML = cameraSelect.price /100+ ',00 €';
 
   //affiche l'option par défaut
-  var option = document.createElement('option');
+  const option = document.createElement('option');
   option.innerHTML ="Veuillez choisir votre lentille";
-  var selection = document.querySelector("#selection");
+  const selection = document.querySelector("#selection");
   selection.appendChild(option);
 
   //selection de la lentille
   cameraSelect.lenses.forEach(element => {
-    var option = document.createElement('option');
+    let option = document.createElement('option');
       option.setAttribute('value',element);
       option.innerText = element;
       selection.appendChild(option);

@@ -1,7 +1,17 @@
-import{loadDoc} from './function.js';
+// création de la fonction loadDoc qui va nous permettre de récupérer un tableau json sur l'api
+function loadDoc(success,url){
+    let xhttp = new XMLHttpRequest();  //requette Ajax
+    xhttp.onreadystatechange = function() { //callback Ajax
+      if (this.readyState == 4 && this.status == 200) { //pour verifier que l'on reçoit bien les infos du serveur
+      let arrayJSON = JSON.parse(this.responseText);
+      success(arrayJSON); //création d'un tableau JSON
+      }
+    };
+    xhttp.open("GET",url, true);//instancie une nouvelle requête
+    xhttp.send(); //envoie au serveur la requête
+}
 
-
-    var somme = 0;//var utiliser pour le total de commande
+    let somme = 0;// utiliser pour le total de commande
     //parsage du panier dans localStorage
     let paniers = JSON.parse(localStorage.getItem('panierStorage'));
     let presentationArticleInPanier = document.getElementById('presentationArticleInPanier');
@@ -13,7 +23,7 @@ function afficherPanier(){
         let h1panier = document.getElementById('h1Panier');
         h1panier.textContent = "Votre panier est vide";
     }else{
-        var compteur = 0;
+        let compteur = 0;
         // foreach pour utiser les elements du tableau paniers
          paniers.forEach(function(element, index) {
         
@@ -63,7 +73,6 @@ function afficherPanier(){
                         removeIcon.setAttribute('class','fas fa-trash-alt removeLine');
                         objectDuPanier.appendChild(removeIcon);
 
-                        var number = compteur;
                         //fonction pour supprimer un élément du panier
                         removeIcon.addEventListener("click",function (){
                             paniers.splice(index, 1);
@@ -72,7 +81,7 @@ function afficherPanier(){
                             document.location.reload();    
                         });
                             //création de l'affichage et du calcul de total
-                            var total = document.getElementById('total');
+                            const total = document.getElementById('total');
                             somme += price;
                             total.innerText = 'Total de votre commande  :  '+somme/100 + ',00 €';
                             localStorage.setItem('total', somme/100 + ',00 €');
@@ -81,7 +90,6 @@ function afficherPanier(){
     });
   }
 }   
-
 
 // effacer tout le panier
 let clear = document.getElementById('clear');
@@ -103,12 +111,12 @@ btn.onclick = function(){
 // CONFIRMATION DE COMMANDE
 
 let btn2 = document.getElementById('validerFormulaire');
-var firstName = document.getElementById("firstName")
-var lastName = document.getElementById("lastName")
-var address = document.getElementById("adress")
-var city =  document.getElementById("city")
-var email = document.getElementById("mail")
-var message = document.getElementById("message");
+let firstName = document.getElementById("firstName")
+let lastName = document.getElementById("lastName")
+let address = document.getElementById("adress")
+let city =  document.getElementById("city")
+let email = document.getElementById("mail")
+let message = document.getElementById("message");
 
 //fonction pour contrôler le contenu du formulaire
 function validation(){
