@@ -4,9 +4,12 @@
 // fonction qui permet de remplir le 1er parametre de loadDoc
 function success(tableauCamera) {
   // boucle qui permet de remplir 'articles' par les différents éléments de l'api
+  
    tableauCamera.forEach(element => {
+
     // createElement permet de creer en html un nouvel élément
     var a = document.createElement("a"); 
+
     //href avec id qui permet de passer l'element avec son id
     a.setAttribute('href', 'produit.html?id='+element['_id']);
 

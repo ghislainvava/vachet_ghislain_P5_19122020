@@ -33,7 +33,7 @@ function productHtml(cameraSelect){
 }
 loadDoc(productHtml,"http://localhost:3000/api/cameras/"+id)
 
-// action a effectuer lor du click "addToCart"
+// action a effectuer lors du click "addToCart"
 document.getElementById("addToCart").onclick = function(){
    
     let lentille = document.getElementById('selection').value;

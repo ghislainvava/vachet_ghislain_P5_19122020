@@ -30,9 +30,7 @@ function afficherPanier(){
                         let name = cameraSelect2.name;
                         let srcImage = cameraSelect2.imageUrl; 
                         let price = cameraSelect2.price;
-                        var idCamera = cameraSelect2._id;
                     
-                
                         //création de l'image avec un lien vers l'objet avec Description dans objectDuPanier
                         let a = document.createElement("a"); 
                         a.setAttribute('href', 'produit.html?id='+element[0]);
@@ -67,27 +65,24 @@ function afficherPanier(){
 
                         var number = compteur;
                         //fonction pour supprimer un élément du panier
-                        console.log(index);
-
                         removeIcon.addEventListener("click",function (){
                             paniers.splice(index, 1);
                             localStorage.clear();
                             localStorage.setItem('panierStorage', JSON.stringify(paniers));
-                            document.location.reload();
-                            
+                            document.location.reload();    
                         });
-                        
                             //création de l'affichage et du calcul de total
                             var total = document.getElementById('total');
                             somme += price;
                             total.innerText = 'Total de votre commande  :  '+somme/100 + ',00 €';
                             localStorage.setItem('total', somme/100 + ',00 €');
-
                     },idServeur);
                     compteur++;
     });
   }
 }   
+
+
 // effacer tout le panier
 let clear = document.getElementById('clear');
 clear.addEventListener("click", function(){

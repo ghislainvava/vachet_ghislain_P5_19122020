@@ -49,6 +49,11 @@ a{
     font-size: 24px;
 }
 
+.price:hover {
+    font-size: 12px;
+
+}
+
 #articles{
     display: flex;
     justify-content: space-around;
